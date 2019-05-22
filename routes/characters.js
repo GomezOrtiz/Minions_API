@@ -20,6 +20,7 @@ const {name, occupation,cartoon, weapon} = req.body
 
 Character.find()
 .then(allCharacters => {
+  allCharacters = allCharacters.sort((a,b) => b.id - a.id)
   const id = allCharacters[allCharacters.length - 1].id + 1
 
   const newCartoon = new Character({name, occupation,cartoon, weapon, id})
