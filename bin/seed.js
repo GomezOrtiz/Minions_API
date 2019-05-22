@@ -1,8 +1,9 @@
+require("dotenv").config()
 const mongoose = require('mongoose');
 const Character = require('../models/Character')
 
 const dbName = 'characters-webmad0419'
-mongoose.connect(`mongodb://localhost/${dbName}`);
+mongoose.connect(process.env.DB);
 
 const characters = [
     {
