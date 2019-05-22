@@ -18,12 +18,20 @@ router.get("/:id", (req,res,next) => {
 router.post("/", (req,res,next) => {
 const {name, occupation,cartoon, weapon} = req.body
 
-const newCartoon = new Character({name, occupation,cartoon, weapon})
+Character.find()
+.then(allCharacters => {
+  const id = allCharacters[allCharacters.length - 1].id + 1
 
-newCartoon.save()
-.then(cartoon => res.json(cartoon))
-.catch(err => res.status(200).json(err))
+  const newCartoon = new Character({name, occupation,cartoon, weapon, id})
+
+  newCartoon.save()
+  .then(cartoon => res.json(cartoon))
+  .catch(err => res.status(200).json(err))
+  })
+
 })
+
+
 
 router.put("/:id", (req,res,next) => {
   const {name, occupation,cartoon, weapon} = req.body
