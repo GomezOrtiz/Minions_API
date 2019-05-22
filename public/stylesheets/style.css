@@ -5,4 +5,14 @@ body {
 a {
   color: #00B7FF; }
 
+ul {
+  margin: 0; }
+
+li {
+  margin: 10px 10px 10px 0;
+  list-style-type: none; }
+
+.flex-container {
+  display: flex; }
+
 /*# sourceMappingURL=style.css.map */
